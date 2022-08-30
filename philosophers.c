@@ -6,7 +6,7 @@
 /*   By: ide-spir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 15:34:11 by ide-spir          #+#    #+#             */
-/*   Updated: 2022/08/30 11:51:14 by ide-spir         ###   ########.fr       */
+/*   Updated: 2022/08/30 13:40:17 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	print_log(t_philo *philo, char *message)
 	if (philo->dinner->in_progress)
 	{
 		timestamp_in_ms = get_timestamp_in_ms(philo->dinner->start_time);
-		printf("%ls %d %s\n", timestamp_in_ms, philo->id, message);
+		printf("%ld %d %s\n", timestamp_in_ms, philo->id, message);
 	}
 	pthread_mutex_unlock(&philo->dinner->mutex_print);
 }
