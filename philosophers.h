@@ -6,7 +6,7 @@
 /*   By: ide-spir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 15:34:32 by ide-spir          #+#    #+#             */
-/*   Updated: 2022/08/29 16:08:22 by ide-spir         ###   ########.fr       */
+/*   Updated: 2022/08/30 11:50:24 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,27 @@ typedef struct s_dinner
 	int				in_progress;
 }				t_dinner;
 
-int	check_arg(char *arg);
+//! check_arg.c
+int		check_arg(char *arg);
 
-int	exit_with_message(char *message);
-int	setup(int argc, char **argv, t_dinner *dinner);
+//! exit.c
+int		exit_with_message(char *message);
 
-int	play_philo(t_dinner *dinner);
+//! setup.c
+int		setup(int argc, char **argv, t_dinner *dinner);
 
+//! philosophers.c
+void	print_log(t_philo *philo, char *message);
+int		play_philo(t_dinner *dinner);
+
+//! time.c
 long	get_timestamp_in_ms(long start_time);
 void	ft_sleep(unsigned long duration, t_dinner *dinner);
 
-void	print_log(t_philo *philo, char *message);
+//! check_dead.c
 void	check_dead(t_dinner *dinner);
 
+//! clear.c
 void	clear_dinner(t_dinner *dinner);
 
 #endif
