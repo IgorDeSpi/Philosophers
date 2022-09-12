@@ -6,7 +6,7 @@
 #    By: ide-spir <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/29 15:34:47 by ide-spir          #+#    #+#              #
-#    Updated: 2022/08/30 13:39:18 by ide-spir         ###   ########.fr        #
+#    Updated: 2022/09/12 16:33:06 by ide-spir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,16 +30,16 @@ CFLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 .c.o:
-		$(CC) $(CFLAGS) -c $< -o $@ -pthread
+		@$(CC) $(CFLAGS) -c $< -o $@ -pthread
 
 $(NAME): $(OBJS)
-		$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+		@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
