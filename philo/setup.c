@@ -6,7 +6,7 @@
 /*   By: ide-spir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 10:28:38 by ide-spir          #+#    #+#             */
-/*   Updated: 2022/08/30 11:52:29 by ide-spir         ###   ########.fr       */
+/*   Updated: 2022/09/20 12:00:45 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	is_valid_args(int argc, t_dinner *dinner)
 		|| dinner->time_to_sleep < 60)
 		return (exit_with_message("Time argument is not valid"));
 	if (argc == 6 && dinner->nbr_of_eat <= 0)
-		return (exit_with_message("Numberof eat is invalid"));
+		return (exit_with_message("Number of eat is invalid"));
 	return (1);
 }
 
