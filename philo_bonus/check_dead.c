@@ -12,7 +12,7 @@
 
 #include "philo.h"
 
-void	check_is_starving(t_dinner *dinner)
+void	ft_check_is_starving(t_dinner *dinner)
 {
 	long	timestamp_in_ms;
 
@@ -26,7 +26,7 @@ void	check_is_starving(t_dinner *dinner)
 	}
 }
 
-void	check_is_dinner_end(t_dinner *dinner)
+void	ft_check_is_dinner_end(t_dinner *dinner)
 {
 	if (dinner->meal_count > dinner->number_of_eat + 1)
 	{
@@ -46,14 +46,14 @@ void	ft_check_dead(t_dinner *dinner)
 		while (dinner->in_progress && i < dinner->number_of_philo)
 		{
 			sem_wait(dinner->sem_dead);
-			check_is_starving(dinner);
+			ft_check_is_starving(dinner);
 			sem_post(dinner->sem_dead);
 			i++;
 		}
 		if (dinner->number_of_eat > 0)
 		{
 			sem_wait(dinner->sem_dead);
-			check_is_dinner_end(dinner);
+			ft_check_is_dinner_end(dinner);
 			sem_post(dinner->sem_dead);
 		}
 	}

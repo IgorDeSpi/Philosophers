@@ -25,7 +25,7 @@ void	ft_print_log(t_dinner *dinner, char *message)
 	sem_post(dinner->sem_print);
 }
 
-void	philo_loop(t_dinner *dinner)
+void	ft_philo_loop(t_dinner *dinner)
 {
 	sem_wait(dinner->sem_forks);
 	ft_print_log(dinner, "has taken a fork");
@@ -44,7 +44,7 @@ void	philo_loop(t_dinner *dinner)
 	ft_print_log(dinner, "is thinking");
 }
 
-void	*philo_life(t_dinner *dinner)
+void	*ft_philo_life(t_dinner *dinner)
 {
 	if (dinner->philo_id % 2 == 0)
 		ft_sleep(50, dinner);
@@ -57,7 +57,7 @@ void	*philo_life(t_dinner *dinner)
 			break ;
 		sem_post(dinner->sem_print);
 		if (dinner->number_of_philo > 1)
-			philo_loop(dinner);
+			ft_philo_loop(dinner);
 	}
 	sem_post(dinner->sem_print);
 	exit(0);
@@ -80,7 +80,7 @@ int	ft_play_philo(t_dinner *dinner)
 		dinner->philo_id = i + 1;
 		pid[i] = fork();
 		if (pid[i] == 0)
-			philo_life(dinner);
+			ft_philo_life(dinner);
 		i++;
 	}
 	waitpid(-1, NULL, 0);

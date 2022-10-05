@@ -6,7 +6,7 @@
 /*   By: ide-spir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 15:34:11 by ide-spir          #+#    #+#             */
-/*   Updated: 2022/10/05 11:43:46 by ide-spir         ###   ########.fr       */
+/*   Updated: 2022/10/05 11:53:22 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_print_log(t_philo *philo, char *message)
 	pthread_mutex_unlock(&philo->dinner->mutex_print);
 }
 
-void	philo_loop(t_philo *philo)
+void	ft_philo_loop(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->dinner->mutex_forks[philo->left_fork]);
 	ft_print_log(philo, "has taken a fork");
@@ -44,7 +44,7 @@ void	philo_loop(t_philo *philo)
 	ft_print_log(philo, "is thinking");
 }
 
-void	*philo_life(t_philo *philo)
+void	*ft_philo_life(t_philo *philo)
 {
 	if (philo->id % 2 == 0)
 		ft_sleep(50, philo->dinner);
@@ -55,7 +55,7 @@ void	*philo_life(t_philo *philo)
 			break ;
 		pthread_mutex_unlock(&philo->dinner->mutex_print);
 		if (philo->dinner->nbr_of_philo > 1)
-			philo_loop(philo);
+			ft_philo_loop(philo);
 	}
 	pthread_mutex_unlock(&philo->dinner->mutex_print);
 	return (NULL);
@@ -72,8 +72,8 @@ int	ft_play_philo(t_dinner *dinner)
 	{
 		dinner->philo[i].time_last_meal
 			= ft_get_timestamp_in_ms(dinner->start_time);
-		if (pthread_create(&dinner->philo[i].thread, NULL, (void *)philo_life,
-				&dinner->philo[i]))
+		if (pthread_create(&dinner->philo[i].thread, NULL,
+				(void *)ft_philo_life, &dinner->philo[i]))
 			return (0);
 		i++;
 	}

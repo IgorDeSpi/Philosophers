@@ -6,13 +6,13 @@
 /*   By: ide-spir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 15:35:32 by ide-spir          #+#    #+#             */
-/*   Updated: 2022/10/05 11:41:36 by ide-spir         ###   ########.fr       */
+/*   Updated: 2022/10/05 11:51:20 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	check_is_starving(t_dinner *dinner, t_philo *philo)
+void	ft_check_is_starving(t_dinner *dinner, t_philo *philo)
 {
 	long	timestamp_in_ms;
 
@@ -27,7 +27,7 @@ void	check_is_starving(t_dinner *dinner, t_philo *philo)
 	}
 }
 
-void	check_is_dinner_end(t_dinner *dinner)
+void	ft_check_is_dinner_end(t_dinner *dinner)
 {
 	int		i;
 	t_philo	philo;
@@ -56,14 +56,14 @@ void	ft_check_dead(t_dinner *dinner)
 		while (dinner->in_progress && i < dinner->nbr_of_philo)
 		{
 			pthread_mutex_lock(&dinner->mutex_dead);
-			check_is_starving(dinner, &dinner->philo[i]);
+			ft_check_is_starving(dinner, &dinner->philo[i]);
 			pthread_mutex_unlock(&dinner->mutex_dead);
 			i++;
 		}
 		if (dinner->nbr_of_eat > 0)
 		{
 			pthread_mutex_lock(&dinner->mutex_dead);
-			check_is_dinner_end(dinner);
+			ft_check_is_dinner_end(dinner);
 			pthread_mutex_unlock(&dinner->mutex_dead);
 		}
 	}

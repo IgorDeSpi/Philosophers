@@ -12,7 +12,7 @@
 
 #include "philo.h"
 
-int	is_valid_args(int argc, t_dinner *dinner)
+int	ft_is_valid_args(int argc, t_dinner *dinner)
 {
 	if (dinner->number_of_philo < 1 || dinner->number_of_philo > 200)
 		return (ft_exit_with_message("number of philosophers is invalid"));
@@ -36,7 +36,7 @@ int	ft_setup_args(int argc, char **argv, t_dinner *dinner)
 		dinner->number_of_eat = ft_check_arg(argv[5]);
 	else
 		dinner->number_of_eat = 0;
-	return (is_valid_args(argc, dinner));
+	return (ft_is_valid_args(argc, dinner));
 }
 
 int	ft_setup_philo(t_dinner *dinner)
