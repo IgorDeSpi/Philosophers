@@ -5,41 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ide-spir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/30 10:28:38 by ide-spir          #+#    #+#             */
-/*   Updated: 2022/09/20 12:00:45 by ide-spir         ###   ########.fr       */
+/*   Created: 2022/10/05 11:46:15 by ide-spir          #+#    #+#             */
+/*   Updated: 2022/10/05 11:46:55 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "philo.h"
 
 int	is_valid_args(int argc, t_dinner *dinner)
 {
 	if (dinner->nbr_of_philo < 1 || dinner->nbr_of_philo > 200)
-		return (exit_with_message("Number of philosophers is invalid"));
+		return (ft_exit_with_message("Number of philosophers is invalid"));
 	if (dinner->time_to_die < 60 || dinner->time_to_eat < 60
 		|| dinner->time_to_sleep < 60)
-		return (exit_with_message("Time argument is not valid"));
+		return (ft_exit_with_message("Time argument is not valid"));
 	if (argc == 6 && dinner->nbr_of_eat <= 0)
-		return (exit_with_message("Number of eat is invalid"));
+		return (ft_exit_with_message("Number of eat is invalid"));
 	return (1);
 }
 
-int	setup_args(int argc, char **argv, t_dinner *dinner)
+int	ft_setup_args(int argc, char **argv, t_dinner *dinner)
 {
 	if (argc != 5 && argc != 6)
-		return (exit_with_message("The number of arguments is not valid"));
-	dinner->nbr_of_philo = check_arg(argv[1]);
-	dinner->time_to_die = check_arg(argv[2]);
-	dinner->time_to_eat = check_arg(argv[3]);
-	dinner->time_to_sleep = check_arg(argv[4]);
+		return (ft_exit_with_message("The number of arguments is not valid"));
+	dinner->nbr_of_philo = ft_check_arg(argv[1]);
+	dinner->time_to_die = ft_check_arg(argv[2]);
+	dinner->time_to_eat = ft_check_arg(argv[3]);
+	dinner->time_to_sleep = ft_check_arg(argv[4]);
 	if (argc == 6)
-		dinner->nbr_of_eat = check_arg(argv[5]);
+		dinner->nbr_of_eat = ft_check_arg(argv[5]);
 	else
 		dinner->nbr_of_eat = 0;
 	return (is_valid_args(argc, dinner));
 }
 
-int	setup_philo(t_dinner *dinner)
+int	ft_setup_philo(t_dinner *dinner)
 {
 	int	i;
 
@@ -59,7 +59,7 @@ int	setup_philo(t_dinner *dinner)
 	return (1);
 }
 
-int	setup_mutex(t_dinner *dinner)
+int	ft_setup_mutex(t_dinner *dinner)
 {
 	int	i;
 
@@ -81,13 +81,13 @@ int	setup_mutex(t_dinner *dinner)
 	return (1);
 }
 
-int	setup(int argc, char **argv, t_dinner *dinner)
+int	ft_setup(int argc, char **argv, t_dinner *dinner)
 {
-	if (!setup_args(argc, argv, dinner))
+	if (!ft_setup_args(argc, argv, dinner))
 		return (0);
-	if (!setup_philo(dinner))
+	if (!ft_setup_philo(dinner))
 		return (0);
-	if (!setup_mutex(dinner))
+	if (!ft_setup_mutex(dinner))
 		return (0);
 	return (1);
 }

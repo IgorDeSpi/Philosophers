@@ -6,7 +6,7 @@
 #    By: ide-spir <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/29 15:34:47 by ide-spir          #+#    #+#              #
-#    Updated: 2022/09/12 16:33:06 by ide-spir         ###   ########.fr        #
+#    Updated: 2022/10/05 11:48:14 by ide-spir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRCS = check_arg.c \
 		clear.c \
 		exit.c \
 		main.c \
-		philosophers.c \
+		philo.c \
 		setup.c \
 		time.c
 

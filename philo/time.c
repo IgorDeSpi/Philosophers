@@ -6,13 +6,13 @@
 /*   By: ide-spir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 10:20:13 by ide-spir          #+#    #+#             */
-/*   Updated: 2022/08/30 10:28:22 by ide-spir         ###   ########.fr       */
+/*   Updated: 2022/10/05 11:41:36 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "philo.h"
 
-long	get_timestamp_in_ms(long start_time)
+long	ft_get_timestamp_in_ms(long start_time)
 {
 	struct timeval	time;
 	long			timestamp_in_ms;
@@ -26,10 +26,10 @@ void	ft_sleep(unsigned long duration, t_dinner *dinner)
 {
 	unsigned long	start;
 
-	start = get_timestamp_in_ms(0);
+	start = ft_get_timestamp_in_ms(0);
 	while (42)
 	{
-		if (get_timestamp_in_ms(0) - start >= duration)
+		if (ft_get_timestamp_in_ms(0) - start >= duration)
 			break ;
 		pthread_mutex_lock(&dinner->mutex_print);
 		if (!dinner->in_progress)

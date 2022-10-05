@@ -16,11 +16,11 @@ void	check_is_starving(t_dinner *dinner)
 {
 	long	timestamp_in_ms;
 
-	if (dinner->time_to_die < get_timestamp_in_ms(dinner->start_time)
+	if (dinner->time_to_die < ft_get_timestamp_in_ms(dinner->start_time)
 		- dinner->time_last_meal)
 	{
 		sem_wait(dinner->sem_print);
-		timestamp_in_ms = get_timestamp_in_ms(dinner->start_time);
+		timestamp_in_ms = ft_get_timestamp_in_ms(dinner->start_time);
 		printf("%ld %d %s\n", timestamp_in_ms, dinner->philo_id, "died");
 		exit(1);
 	}
@@ -35,7 +35,7 @@ void	check_is_dinner_end(t_dinner *dinner)
 	}
 }
 
-void	check_dead(t_dinner *dinner)
+void	ft_check_dead(t_dinner *dinner)
 {
 	int	i;
 

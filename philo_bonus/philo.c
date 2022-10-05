@@ -12,14 +12,14 @@
 
 #include "philo.h"
 
-void	print_log(t_dinner *dinner, char *message)
+void	ft_print_log(t_dinner *dinner, char *message)
 {
 	long	timestamp_in_ms;
 
 	sem_wait(dinner->sem_print);
 	if (dinner->in_progress)
 	{
-		timestamp_in_ms = get_timestamp_in_ms(dinner->start_time);
+		timestamp_in_ms = ft_get_timestamp_in_ms(dinner->start_time);
 		printf("%ld %d %s\n", timestamp_in_ms, dinner->philo_id, message);
 	}
 	sem_post(dinner->sem_print);
@@ -28,27 +28,27 @@ void	print_log(t_dinner *dinner, char *message)
 void	philo_loop(t_dinner *dinner)
 {
 	sem_wait(dinner->sem_forks);
-	print_log(dinner, "has taken a fork");
+	ft_print_log(dinner, "has taken a fork");
 	sem_wait(dinner->sem_forks);
-	print_log(dinner, "has taken a fork");
+	ft_print_log(dinner, "has taken a fork");
 	sem_wait(dinner->sem_dead);
-	print_log(dinner, "is eating");
-	dinner->time_last_meal = (int)get_timestamp_in_ms(dinner->start_time);
+	ft_print_log(dinner, "is eating");
+	dinner->time_last_meal = (int)ft_get_timestamp_in_ms(dinner->start_time);
 	dinner->meal_count++;
 	sem_post(dinner->sem_dead);
 	ft_sleep(dinner->time_to_eat, dinner);
 	sem_post(dinner->sem_forks);
 	sem_post(dinner->sem_forks);
-	print_log(dinner, "is sleeping");
+	ft_print_log(dinner, "is sleeping");
 	ft_sleep(dinner->time_to_sleep, dinner);
-	print_log(dinner, "is thinking");
+	ft_print_log(dinner, "is thinking");
 }
 
 void	*philo_life(t_dinner *dinner)
 {
 	if (dinner->philo_id % 2 == 0)
 		ft_sleep(50, dinner);
-	if (pthread_create(&dinner->thread, NULL, (void *)check_dead, dinner))
+	if (pthread_create(&dinner->thread, NULL, (void *)ft_check_dead, dinner))
 		return (0);
 	while (42)
 	{
@@ -64,7 +64,7 @@ void	*philo_life(t_dinner *dinner)
 	return (NULL);
 }
 
-int	play_philo(t_dinner *dinner)
+int	ft_play_philo(t_dinner *dinner)
 {
 	int	i;
 	int	*pid;
@@ -73,8 +73,8 @@ int	play_philo(t_dinner *dinner)
 	pid = malloc(sizeof(int) * dinner->number_of_philo);
 	if (!pid)
 		exit(1);
-	dinner->start_time = get_timestamp_in_ms(0);
-	dinner->time_last_meal = get_timestamp_in_ms(dinner->start_time);
+	dinner->start_time = ft_get_timestamp_in_ms(0);
+	dinner->time_last_meal = ft_get_timestamp_in_ms(dinner->start_time);
 	while (i < dinner->number_of_philo)
 	{
 		dinner->philo_id = i + 1;

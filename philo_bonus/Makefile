@@ -19,16 +19,16 @@ CFLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 .c.o:
-	$(CC) $(CFLAGS) -c $< -o $@ -pthread
+	@$(CC) $(CFLAGS) -c $< -o $@ -pthread
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 

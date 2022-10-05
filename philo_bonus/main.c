@@ -16,9 +16,9 @@ int	main(int argc, char **argv)
 {
 	t_dinner	dinner;
 
-	if (!setup(argc, argv, &dinner))
+	if (!ft_setup(argc, argv, &dinner))
 		return (1);
-	play_philo(&dinner);
-	clear_dinner(&dinner);
+	ft_play_philo(&dinner);
+	ft_clear_dinner(&dinner);
 	return (0);
 }

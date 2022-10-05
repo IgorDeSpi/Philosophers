@@ -6,21 +6,21 @@
 /*   By: ide-spir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 15:35:32 by ide-spir          #+#    #+#             */
-/*   Updated: 2022/08/30 10:19:12 by ide-spir         ###   ########.fr       */
+/*   Updated: 2022/10/05 11:41:36 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "philo.h"
 
 void	check_is_starving(t_dinner *dinner, t_philo *philo)
 {
 	long	timestamp_in_ms;
 
-	if (dinner->time_to_die < get_timestamp_in_ms(dinner->start_time)
+	if (dinner->time_to_die < ft_get_timestamp_in_ms(dinner->start_time)
 		- philo->time_last_meal)
 	{
 		pthread_mutex_lock(&dinner->mutex_print);
-		timestamp_in_ms = get_timestamp_in_ms(philo->dinner->start_time);
+		timestamp_in_ms = ft_get_timestamp_in_ms(philo->dinner->start_time);
 		printf("%ld %d %s\n", timestamp_in_ms, philo->id, "died");
 		dinner->in_progress = 0;
 		pthread_mutex_unlock(&dinner->mutex_print);
@@ -45,7 +45,7 @@ void	check_is_dinner_end(t_dinner *dinner)
 	pthread_mutex_unlock(&dinner->mutex_print);
 }
 
-void	check_dead(t_dinner *dinner)
+void	ft_check_dead(t_dinner *dinner)
 {
 	int	i;
 

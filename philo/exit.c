@@ -6,13 +6,13 @@
 /*   By: ide-spir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:00:06 by ide-spir          #+#    #+#             */
-/*   Updated: 2022/08/30 11:01:00 by ide-spir         ###   ########.fr       */
+/*   Updated: 2022/10/05 11:44:35 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "philo.h"
 
-int	exit_with_message(char *message)
+int	ft_exit_with_message(char *message)
 {
 	printf("%s\n", message);
 	return (0);

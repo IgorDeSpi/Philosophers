@@ -6,13 +6,13 @@
 /*   By: ide-spir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 10:57:12 by ide-spir          #+#    #+#             */
-/*   Updated: 2022/08/30 10:59:50 by ide-spir         ###   ########.fr       */
+/*   Updated: 2022/10/05 11:41:36 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "philo.h"
 
-void	clear_dinner(t_dinner *dinner)
+void	ft_clear_dinner(t_dinner *dinner)
 {
 	int	i;
 

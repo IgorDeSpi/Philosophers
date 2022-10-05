@@ -43,19 +43,19 @@ typedef struct s_dinner
 	atomic_int		in_progress;
 }				t_dinner;
 
-int		check_arg(char *arg);
+int		ft_check_arg(char *arg);
 
-int		exit_with_message(char *message);
-int		setup(int argc, char **argv, t_dinner *dinner);
+int		ft_exit_with_message(char *message);
+int		ft_setup(int argc, char **argv, t_dinner *dinner);
 
-int		play_philo(t_dinner *dinner);
+int		ft_play_philo(t_dinner *dinner);
 
-long	get_timestamp_in_ms(long start_time);
+long	ft_get_timestamp_in_ms(long start_time);
 void	ft_sleep(unsigned long duration, t_dinner *dinner);
 
-void	print_log(t_dinner *dinner, char *message);
-void	check_dead(t_dinner *dinner);
+void	ft_print_log(t_dinner *dinner, char *message);
+void	ft_check_dead(t_dinner *dinner);
 
-void	clear_dinner(t_dinner *dinner);
+void	ft_clear_dinner(t_dinner *dinner);
 
 #endif

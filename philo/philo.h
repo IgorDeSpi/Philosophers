@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philosophers.h                                     :+:      :+:    :+:   */
+/*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ide-spir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 15:34:32 by ide-spir          #+#    #+#             */
-/*   Updated: 2022/08/30 11:50:24 by ide-spir         ###   ########.fr       */
+/*   Updated: 2022/10/05 11:45:11 by ide-spir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILOSOPHERS_H
-# define PHILOSOPHERS_H
+#ifndef PHILO_H
+# define PHILO_H
 
 # include <stdlib.h>
 # include <time.h>
@@ -51,26 +51,26 @@ typedef struct s_dinner
 }				t_dinner;
 
 //! check_arg.c
-int		check_arg(char *arg);
+int		ft_check_arg(char *arg);
 
 //! exit.c
-int		exit_with_message(char *message);
+int		ft_exit_with_message(char *message);
 
 //! setup.c
-int		setup(int argc, char **argv, t_dinner *dinner);
+int		ft_setup(int argc, char **argv, t_dinner *dinner);
 
-//! philosophers.c
-void	print_log(t_philo *philo, char *message);
-int		play_philo(t_dinner *dinner);
+//! philo.c
+void	ft_print_log(t_philo *philo, char *message);
+int		ft_play_philo(t_dinner *dinner);
 
 //! time.c
-long	get_timestamp_in_ms(long start_time);
+long	ft_get_timestamp_in_ms(long start_time);
 void	ft_sleep(unsigned long duration, t_dinner *dinner);
 
 //! check_dead.c
-void	check_dead(t_dinner *dinner);
+void	ft_check_dead(t_dinner *dinner);
 
 //! clear.c
-void	clear_dinner(t_dinner *dinner);
+void	ft_clear_dinner(t_dinner *dinner);
 
 #endif
