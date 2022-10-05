@@ -10,10 +10,21 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.c setup.c check_arg.c exit.c philo.c check_dead.c time.c clear.c
+SRCS = 	main_bonus.c \
+		setup_bonus.c \
+		check_arg_bonus.c \
+		exit_bonus.c \
+		philo_bonus.c \
+		check_dead_bonus.c \
+		time_bonus.c \
+		clear_bonus.c
+
 OBJS = $(SRCS:.c=.o)
+
 NAME = philo_bonus
+
 CC = gcc
+
 CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
