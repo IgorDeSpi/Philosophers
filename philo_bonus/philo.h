@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ide-spir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/05 09:32:59 by ide-spir          #+#    #+#             */
+/*   Updated: 2022/10/05 09:32:59 by ide-spir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHILO_H
 # define PHILO_H
 
@@ -13,9 +25,9 @@
 # include <signal.h>
 # include <stdatomic.h>
 
-typedef struct	s_dinner
+typedef struct s_dinner
 {
-	pthread_t	thread;
+	pthread_t		thread;
 	int				philo_id;
 	atomic_int		meal_count;
 	atomic_long		time_last_meal;
